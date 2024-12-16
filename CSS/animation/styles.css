@@ -1,0 +1,72 @@
+.sprite{
+    background: url('./spriteNuevo.png') no-repeat;
+    width: 334px;
+    height: 324px;
+    background-position: -120px -540px;
+    animation: quieto 1s steps(4) infinite;
+    bottom: 5%;
+    left: 40%;
+    position: absolute;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.fondo{
+    background: url('./fondo.jpg') no-repeat;
+    background-size: 100vw 100vh;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+@keyframes quieto{
+    from{
+        background-position: -120px -540px;
+    }
+    to{
+        background-position: -1400px -540px ;
+    }
+}
+
+@keyframes moverDerecha{
+    from{
+        background-position: -1400px -540px;
+        width: 280px;
+    }
+    to{
+        background-position: -3640px -540px;
+        width: 280px;
+    }
+
+}
+
+@keyframes moverIzquierda{
+    from{
+        background-position: -1400px -540px;
+        width: 280px;
+        transform: scaleX(-1);
+    }
+    to{
+        background-position: -3640px -540px;
+        width: 280px;
+        transform: scaleX(-1);
+    }
+
+
+}
+
+@keyframes saltar{
+    from{
+        background-position: -400px -864px;
+        width: 320px;
+        
+    }
+    to{
+        background-position: -3280px -864px;
+        width: 320px;
+        
+    }
+}

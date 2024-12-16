@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pong Menu</title>
+    <style>
+        @font-face {
+            font-family: 'pong';
+            src: url('./fuentes/billo/BILLO___.TTF');
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: black;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #fff;
+            overflow: hidden;
+			display: flex;
+        }
+
+        .youlose{
+            text-align: center;
+            align-items: center;
+            display: none;
+            color: #ffbe00;
+        }
+
+        .botonpausa{
+            background-color: #ffbe00;
+            width: fit-content;
+            height: 20px;
+            position: absolute;
+            display: none;
+            top: 20px;
+            left: 20px;
+            color: black;
+        }
+
+        .botonreanudar{
+            background-color: #ffbe00;
+            width: fit-content;
+            height: 20px;
+            position: absolute;
+            display: none;
+            color: black;
+            display: none;
+            top: 20px;
+            left: 100px;
+        }
+
+		.container-nombre{
+			width: 35%;
+			color: #ffbe00;
+			align-content: center;
+			text-align: center;
+		}
+
+        .menu-container {
+            text-align: center;
+			justify-content: center;
+			align-items: center;
+			display: flex;
+            background-color: rgba(0, 0, 0,1);
+            padding: 20px;
+            border-radius: 10px;
+			z-index: 999;
+			width: 100%;
+			height: 100%;
+        }
+
+        
+		.menu-container2 {
+            text-align: center;
+			justify-content: center;
+			align-items: center;
+			display: none;
+            background-color: rgba(0, 0, 0,1);
+            padding: 20px;
+            border-radius: 10px;
+			z-index: 999;
+			width: 100%;
+			height: 100%;
+        }
+
+		.menu-container3 {
+            text-align: center;
+			justify-content: center;
+			align-items: center;
+			display: none;
+            background-color: rgba(0, 0, 0,1);
+            padding: 20px;
+            border-radius: 10px;
+			z-index: 999;
+			width: 100%;
+			height: 100%;
+        }
+
+		.menu-container3 h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #ffbe00;
+            text-shadow: 2px 2px 8px #000;
+            font-family: 'pong';
+        }
+
+        .menu-container3 ul.menu-options li {
+    margin: 10px 0;
+    color: #ffbe00;
+    font-size: 1.2rem;
+}
+
+        .menu-container3 ul.menu-options li input,
+        .menu-container3 ul.menu-options li select {
+            background-color: black;
+            color: #ffbe00;
+         border: 1px solid #ffbe00;
+    padding: 5px;
+    font-size: 1rem;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.menu-container3 ul.menu-options li button {
+    background-color: #ffbe00;
+    color: black;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu-container3 ul.menu-options li button:hover {
+    background-color: black;
+    color: #ffbe00;
+    border: 2px solid #ffbe00;
+}
+
+		.menu-container2 h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #ffbe00;
+            text-shadow: 2px 2px 8px #000;
+            font-family: 'pong';
+        }
+
+        .menu-container h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #ffbe00;
+            text-shadow: 2px 2px 8px #000;
+            font-family: 'pong';
+        }
+
+        .menu-options {
+            list-style: none;
+        }
+
+        .menu-options li {
+            margin: 10px 0;
+        }
+
+        .menu-options button {
+            background-color: #ffbe00;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu-options button:hover {
+            background-color: #ffc107;
+        }
+
+        #paddle {
+            width: 40px;
+            height: 150px;
+            position: absolute;
+            top: calc(50% - 75px);
+            left: 50px;
+            background-color: #ffbe00;
+        }
+
+		#paddle2 {
+            width: 40px;
+            height: 150px;
+            position: absolute;
+            top: calc(50% - 75px);
+            right: 50px;
+			display: none;
+            background-color: #ffbe00;
+        }
+
+        #ball {
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            top: calc(50% - 40px);
+            left: calc(50% - 40px);
+            background-color: #ffbe00;
+            border-radius: 50%;
+        }
+        .marcador{
+            color: #ffbe00;
+            text-align: center;
+            justify-content: center;
+            display: none;
+            position: absolute;
+            top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <audio id="paddle-sound" src="./sonidos/pala.mp3"></audio>
+    <audio id="wall-sound" src="./sonidos/boing.mp3"></audio>
+
+    <div class="botonpausa" onclick="pause()">Pause</div>
+    <div class="botonreanudar" onclick="reanudar()">Reanude</div>
+
+    <div class="marcador" id="marcador"> 
+        <div id="n1"></div>  <span id="score1"> 0 </span> - <span id="score2"> 0 </span>  <div id="n2"></div>
+     </div>
+	<div class="youlose">YOU LOSE</div>
+    <div class="menu-container">
+        <ul class="menu-options">
+			<li><h1>PONG</h1></li>
+            <li><button onclick="startGame()">Iniciar Juego</button></li>
+            <li><button onclick="showOptions()">Configuración</button></li>
+            <li><button onclick="exitGame()">Salir</button></li>
+        </ul>
+    </div>
+
+	<div class="menu-container2">
+		<ul class="menu-options">
+			<li><h2>ELIGE LA CANTIDAD DE JUGADORES</h2></li>
+			<li><button onclick="unJugador()">1 Jugador</button></li>
+			<li><button onclick="dosJugadores()">2 Jugadores</button></li>
+			<li><button onclick="atrasStart()">Atrás</button></li>
+		</ul>
+	</div>
+
+	<div class="menu-container3">
+		<ul class="menu-options">
+			<li><h2>CONFIGURACIÓN</h2></li>
+			<select name="" id="dific">
+			<option value="Facil">Facil</option>
+			<option value="Medio">Medio</option>
+			<option value="Dificil">Dificil</option>
+		</select>
+		<li>Tamaño de la bola</li>
+		<input type="number" id="radio">
+		<li>Nombre Jugador 1</li>
+		<input type="text" id="nombre1">
+		<li>Nombre Jugador 2</li>
+		<input type="text" id="nombre2">
+		<li><button onclick="atrasConfig()">Atrás</button></li>
+		</ul>
+	</div>
+
+
+    <div id="paddle"></div>
+	<div id="paddle2"></div>
+    <div id="ball"></div>
+
+    <script>
+			const ball = document.getElementById("ball");
+
+			const ball_radius = 0;
+			var p1 =0;
+            var p2 =0;
+			var velocity_x = 0;
+			var velocity_y = 0;
+			var ball_movement ;
+			var dificultad;
+            
+
+        // Función para iniciar el juego
+        function startGame() {
+            document.querySelector('.menu-container').style.display = 'none';
+			document.querySelector('.menu-container2').style.display = 'flex'; 
+        }
+
+        // Función para mostrar las opciones
+        function showOptions() {
+			document.querySelector('.menu-container').style.display = 'none';
+			document.querySelector('.menu-container3').style.display = 'flex';
+        }
+
+        // Función para salir del juego
+        function exitGame() {
+            window.close(); 
+        }
+		function atrasConfig(){
+			document.querySelector('.menu-container3').style.display = 'none';
+			document.querySelector('.menu-container').style.display = 'flex';
+		}
+		function atrasStart(){
+			document.querySelector('.menu-container2').style.display = 'none';
+			document.querySelector('.menu-container').style.display = 'flex';
+		}
+
+		let numJugadores =1;
+
+		function unJugador(){
+			document.querySelector('.menu-container2').style.display = 'none';
+            document.querySelector('.botonpausa').style.display = 'flex';
+			numJugadores =1;
+			config();
+			ball_movement = setInterval(move_ball, 20);
+			
+		}
+
+		function dosJugadores(){
+			document.querySelector('.menu-container2').style.display = 'none';
+            document.querySelector('.marcador').style.display = 'flex';
+            document.querySelector('.botonpausa').style.display = 'flex';
+			numJugadores =2;
+            paddle2.style.display = "flex";
+			config();
+			ball_movement = setInterval(move_ball, 20);
+		}
+
+        
+
+        function pause(){
+            clearInterval(ball_movement);
+            document.querySelector('.botonreanudar').style.display = 'flex';
+        }
+
+        function reanudar(){
+            ball_movement = setInterval(move_ball, 20);
+            document.querySelector('.botonreanudar').style.display = 'none';
+        }
+        
+
+
+		function config(){
+
+			dific = document.getElementById('dific').value;
+			if(dific == "Facil"){
+				velocity_x = 15;
+				velocity_y = 15;
+			} else if(dific == "Medio"){
+				velocity_x = 25;
+				velocity_y = 25;
+			} else{
+				velocity_x = 35;
+				velocity_y = 35;
+			}
+
+			
+			radio = (document.getElementById('radio').value=="")?(40):(document.getElementById('radio').value);
+			ball.style.height = 2*radio + "px";
+			ball.style.width = 2*radio + "px";
+			ball.style.borderRadius = 2*radio + "px";
+
+		
+
+			var nombre1 = (document.getElementById('nombre1').value=="")?(" Jugador1 "):(document.getElementById('nombre1').value);
+			var nombre2 = (document.getElementById('nombre1').value=="")?(" Jugador2 "):(document.getElementById('nombre2').value);
+
+            n1 = document.getElementById('n1');
+            n1.innerHTML = " " + nombre1 + "&nbsp";
+            n2 = document.getElementById('n2');
+            n2.innerHTML ="&nbsp " + nombre2 + " ";
+
+    }
+
+    const sonidoPala = document.getElementById("paddle-sound");
+    const sonidoBorde = document.getElementById("wall-sound");
+
+    let rapido = false;
+		
+function move_ball(){
+    
+// Pala 1 (izquierda)
+if (ball.offsetLeft <= paddle.offsetLeft + paddle.offsetWidth && 
+    ball.offsetLeft >= paddle.offsetLeft && 
+    (ball.offsetTop + ball_radius >= paddle.offsetTop) && 
+    (ball.offsetTop - ball_radius <= paddle.offsetTop + paddle.offsetHeight)) {
+    velocity_x = -velocity_x;
+    sonidoPala.play();
+}
+
+// Pala 2 (derecha)
+if (ball.offsetLeft + ball.offsetWidth >= paddle2.offsetLeft && 
+    ball.offsetLeft + ball.offsetWidth <= paddle2.offsetLeft + paddle2.offsetWidth && 
+    (ball.offsetTop + ball_radius >= paddle2.offsetTop) && 
+    (ball.offsetTop - ball_radius <= paddle2.offsetTop + paddle2.offsetHeight)) {
+    velocity_x = -velocity_x;
+    sonidoPala.play();
+}
+
+//arriba
+if (ball.offsetTop  <= 0) {
+    velocity_y = -velocity_y;
+    sonidoBorde.play();
+}
+//abajo
+if (ball.offsetTop >= (window.innerHeight -ball_radius/2)) {
+    velocity_y = -velocity_y;
+    sonidoBorde.play();
+}
+
+//derecha
+if (numJugadores == 1) {
+    if (ball.offsetLeft >= (window.innerWidth - ball_radius * 2)) {
+        velocity_x = -velocity_x; 
+        sonidoBorde.play();
+    }
+} else { 
+    if (ball.offsetLeft >= (window.innerWidth - ball_radius * 2)) {
+        ball.style.left = (window.innerWidth / 2 - ball_radius) + "px";
+        ball.style.top = (window.innerHeight / 2 - ball_radius) + "px"; 
+        velocity_x = -velocity_x; 
+        p1++;
+        score1.textContent = p1;
+    }
+
+    if (ball.offsetLeft <= ( ball_radius * 2)) {
+        ball.style.left = (window.innerWidth / 2 - ball_radius) + "px";
+        ball.style.top = (window.innerHeight / 2 - ball_radius) + "px"; 
+        velocity_x = -velocity_x; 
+        p2++;
+        score2.textContent = p2;
+    }
+}
+
+
+
+//mas rapido al llegar a 3 puntos
+
+if ((p1 === 3 || p2 === 3) && !rapido) {
+        velocity_x += velocity_x  +3;
+        velocity_y += velocity_y  +3;
+        rapido = true; 
+    }
+
+
+//Check left
+if(numJugadores==1){
+    
+    if (ball.offsetLeft <= ball_radius/2) {
+        document.querySelector('.youlose').style.display = 'flex'; 
+        clearInterval(ball_movement);
+            youlose = setTimeout(function() {              
+                location.reload();
+            }, 3000);    
+}
+} else{
+    if (ball.offsetLeft <= ball_radius/2) {
+        location.reload();
+        ball.style.left = (window.innerWidth / 2 - ball_radius) + "px";
+        ball.style.top = (window.innerHeight / 2 - ball_radius) + "px";
+        velocity_x = -velocity_x; 
+    }
+}
+
+
+ball.style.top = (ball.offsetTop + velocity_y) +"px";
+ball.style.left = (ball.offsetLeft + velocity_x) +"px";
+
+}
+			
+			
+			const paddle = document.getElementById("paddle");
+			const paddle2 = document.getElementById("paddle2");
+			let moveUp1 =false;
+			let moveUp2 =false;
+			let moveDown1 =false;
+			let moveDown2 =false;
+
+			function move_paddle() {
+               if (moveUp1 && paddle.offsetTop > 0) {
+                   paddle.style.top = paddle.offsetTop - 5 + "px";
+               } else if (moveDown1 && paddle.offsetTop + paddle.offsetHeight < window.innerHeight) {
+                   paddle.style.top = paddle.offsetTop + 5 + "px";
+               }
+           }
+           function move_paddle2() {
+               if (moveUp2 && paddle2.offsetTop > 0) {
+                   paddle2.style.top = paddle2.offsetTop - 5 + "px";
+               } else if (moveDown2 && paddle2.offsetTop + paddle2.offsetHeight < window.innerHeight) {
+                   paddle2.style.top = paddle2.offsetTop + 5 + "px";
+               }
+           }
+           document.addEventListener("keydown", function(event) {
+               if (event.key == "w") {
+                   moveUp1 = true;
+               } else if (event.key == "s") {
+                   moveDown1 = true;
+               }
+               if (event.key == "ArrowUp") {
+                   moveUp2 = true;
+               } else if (event.key == "ArrowDown") {
+                   moveDown2 = true;
+               }
+           });
+    
+           document.addEventListener("keyup", function(event) {
+               if (event.key == "w") {
+                   moveUp1 = false;
+               } else if (event.key == "s") {
+                   moveDown1 = false;
+               }
+               if (event.key == "ArrowUp") {
+                   moveUp2 = false;
+               } else if (event.key == "ArrowDown") {
+                   moveDown2 = false;
+               }
+           });
+
+		   setInterval(move_paddle, 10);
+		   setInterval(move_paddle2, 10);
+
+        
+    </script>
+</body>
+</html>

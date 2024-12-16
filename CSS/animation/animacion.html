@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+<div class="fondo">
+    <div class="sprite" id="sprite"></div>
+</div>
+
+
+
+
+
+<script>
+  const sprite = document.getElementById('sprite');
+  let isJumping = false;
+  let isRunning = false;
+  let positionLeft = sprite.offsetLeft; 
+
+  var id;
+
+  document.addEventListener('keydown', (event) => {
+    if (event.code === 'Space' && !isJumping) {
+      isJumping = true;
+      sprite.style.animation = 'saltar 0.75s steps(9)';
+      setTimeout(() => {
+          if(isRunning === true){
+              sprite.style.animation = 'moverDerecha 0.5s steps(5) infinite';
+       }
+       sprite.style.animation = 'quieto 1s steps(4) infinite';
+       isJumping = false;
+      }, 1250);
+      
+    } else if (event.code === 'KeyD' && !isRunning) {
+      isRunning = true;
+      sprite.style.transform = 'scaleX(1)';
+      sprite.style.animation = 'moverDerecha 0.5s steps(7) infinite';
+      id = setInterval(function (){
+          positionLeft += 15; 
+          sprite.style.left = positionLeft + 'px';
+      } , 50);
+    }
+    else if (event.code === 'KeyA' && !isRunning) {
+      isRunning = true;
+      sprite.style.animation = 'moverDerecha 0.5s steps(7) infinite';
+      sprite.style.transform = 'scaleX(-1)';
+      id = setInterval(function (){
+          positionLeft -= 15; 
+          sprite.style.left = positionLeft + 'px';
+      } , 50);
+    }
+  });
+  document.addEventListener('keyup', (event) => {
+      if (event.code !== 'Space' ){ 
+
+      clearInterval(id);
+      sprite.style.animation = 'quieto 1s steps(4) infinite';
+      isRunning = false;
+      } else{
+          isRunning = true;
+      }
+
+  });
+</script>
+
+
+</body>
+</html>

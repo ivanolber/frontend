@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reloj</title>
+    <style>
+        .container-reloj{
+            justify-content: center;
+            margin: 0;
+            display: flex;
+            
+        }
+        .manilla{
+            justify-content: center; 
+            position: absolute; 
+            top: 10%;
+            transition: transform 60s linear;
+            transform-origin: center 221px ;
+        }
+        .manilla:hover{
+            transform: rotate(360deg);
+            
+        }
+
+       
+    </style>
+</head>
+<body>
+    
+
+    <div class="container-reloj">
+        <img src="/RLOJ/esfera-reloj.png" alt="">
+        <img src="/RLOJ/manecilla-reloj.png" alt="" class="manilla">
+    </div>
+   
+</body>
+</html>

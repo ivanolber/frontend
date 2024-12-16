@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xirigames</title>
+    <link rel="stylesheet" href="./estilos.css">
+</head>
+<body>
+    
+    <header>
+        
+        <div class="desple">
+            <ul>
+                <li>
+                    <img src="./img/3_lineas.png" alt="">
+                    <ul class="submenu">
+                        <li>Inicio</li>
+                        <li class="promociones">Juegos
+                        <ul class="prom-submenu">
+                            <li>Accion</li>
+                            <li>Aventura</li>
+                            <li>Rol(RPG)</li>
+                            <li>Deportes</li>
+                            <li>Estrategias</li>
+                        </ul>
+
+                        </li>
+                        <li class="promociones">Promociones
+                            <ul class="prom-submenu">
+                                <li>Ghost of Tsushima</li>
+                                <li>Lies of P</li>
+                            </ul>
+                        </li>
+                        <li>Preventa</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="container-header2">
+            
+            
+            <div class="headerlogo">
+                <img  class="logo" src="./img/logo.png" alt="">
+            </div>
+
+            <div class="search-container">
+                <input type="text" placeholder="🧐" class="search-box">
+            </div>
+            
+        </div>
+
+
+        <div class="container-header">
+            <div class="headerlogo">
+            <img class="logo"  src="./img/logo.png" alt="imagenesLogo">
+            <h1>XIRIGAMES</h1>
+            </div>
+
+            
+            
+            <ul class="menu">
+                <li><h2>Inicio</h2></li>
+                <li ><h2>Juegos</h2>
+                    <ul class="submenu">
+                        <li>Accion</li>
+                        <li>Aventura</li>
+                        <li>Rol(RPG)</li>
+                        <li>Deportes</li>
+                        <li>Estrategias</li>
+                    </ul>
+                </li>
+                <li><h2>Promociones</h2>
+                    <ul class="submenu">
+                        <li>Ghost of tshusima</li>
+                        <li>Lies of P</li>
+                    </ul>
+                </li>
+                <li><h2>Preventa</h2></li>
+                
+            </ul>
+     
+            <div class="search-container">
+                <input type="text" placeholder="🧐" class="search-box">
+            </div>
+
+            <img class="carro" src="./img/carrito.png" >
+            <img class="login" src="./img/login.png">
+
+        </div>
+    </header>
+    
+    <div class="caja-carrusel">
+        <div class="centrar">
+        <div class="carrusel" id="carrusel">
+            
+            <div class="slide">
+                <img  src="./img/gt.jpg">
+                <button><h1>Comprar Ahora</h1></button>
+            </div>
+            <div class="slide">
+                <img  src="./img/RD.jpg">
+                <button><h1>Comprar Ahora</h1></button>
+            </div>
+            <div class="slide">
+                <img  src="./img/hk.jpg">
+                <button><h1>Comprar Ahora</h1></button>
+            </div>
+            <div class="slide">
+                <img  src="./img/LOP.jpeg">
+                
+                <button><h1>Comprar Ahora</h1></button>
+            </div>
+            
+        </div>
+        </div>
+        <div class="centrar">
+        <button class="prev" onclick="antSlide()">&#10094;</button>
+        <button class="next" onclick="sigSlide()">&#10095;</button>
+    </div>  
+    </div>
+
+  
+    <div class="container">
+    <h1 class="titulo">Consolas</h1>
+    </div>
+    <div class="centrar">
+    <div class="menufotos">
+
+    <img src="./img/nintendo.jpg" alt="imagenes">
+    <img src="./img/ps5.jpg" alt="imagenes">
+    <img src="./img/pc.jpg" alt="imagenes">
+    <img src="./img/xbox.jpg" alt="imagenes">
+
+    </div>
+</div>
+    <div class="container">
+    <h1 class="titulo">Juegos</h1>
+    </div>
+
+    <div class="container-juegos">
+        <div class="caja-juegos" id="caja-juegos">
+
+            <div class="tarjeta">
+                <img src="./img/p_lp.jpeg" alt="imagenes">
+                <p>Lies of P</p>
+                <p>Precio: 60€</p>
+            </div>
+            <div class="tarjeta">
+                <img src="./img/p_got.jpeg" alt="imagenes">
+                <p>Ghost of Tsushima</p>
+                <p>Precio: 45€</p>
+            </div>
+            <div class="tarjeta" id="tarjeta">
+                <img src="./img/p_hk.jpeg" alt="imagenes">
+                <p>Hollow Knight</p>
+                <p>Precio: 20€</p>
+            </div>
+            <div class="tarjeta" id="tarjeta">
+                <img src="./img/p_rd.jpeg" alt="imagenes">
+                <p>RDR 2</p>
+                <p>Precio: 60€</p>
+            </div>
+            <div class="tarjeta" id="tarjeta">
+                <img src="./img/p_gt6.jpeg" alt="imagenes">
+                <p>GTA 6</p>
+                <p>Precio: 100€</p>
+            </div>
+            <div class="tarjeta" id="tarjeta">
+                <img src="./img/p_dbh.jpg" alt="imagenes">
+                <p>DBH</p>
+                <p>Precio: <span class="rebajado">40</span>€ 35€</p>
+            </div>
+            <div class="tarjeta" id="tarjeta">
+                <img src="./img/p_gow.jpeg" alt="imagenes">
+                <p>God of War</p>
+                <p>Precio: 60€</p>
+            </div>
+        </div>
+            <button class="prev" onclick="antTarj()">&#10094;</button>
+            <button class="next" onclick="sigTarj()">&#10095;</button>
+    </div>
+    <footer>
+           
+            
+            <ul class="uno">
+                <li><h2>Legalidad y privaciad</h2></li>
+               
+                <li>Política de privacidad</li>
+                <li>Aviso legal</li>
+                <li>Política de cookies</li>
+            </ul>
+          
+           
+            <ul class="dos">
+                <li><h2>Sobre nosotros</h2></li>
+                <li>Accesibilidad</li>
+                <li>Afiliados</li>
+                <li>Inversores</li>
+            </ul>
+
+            <div class="tres"><h2>Envíanos una sugerencia</h2>
+                <input type="text" placeholder="correo">
+                <input type="text" placeholder="Envíanos tu sugerencia">
+                <button type="submit" class="boton">Enviar</button>
+            </div>
+          
+    </footer>
+    <br><br><br><br>
+    <script src="./index.js"></script>
+</body>
+</html>

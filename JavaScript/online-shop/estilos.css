@@ -1,0 +1,654 @@
+@media (max-width: 1920px){
+
+    * {
+        
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    @font-face {
+        font-family: "miFuente";
+        src: url("./fuente/8_bit_hud/8-bit-hud.ttf");
+    }
+    body {   
+        margin: 0; 
+        background-color:#111;
+        max-width: 100vw;
+        
+    }
+
+    .centrar{
+        margin: 0 auto;
+        justify-content: center;
+    }
+    header {
+        display: flex;
+        position: sticky;
+        top: 0;
+        max-width: 100vw;
+        justify-content: center;
+        background-color:black;
+        height: 10vh;
+        color: white;
+        z-index: 999;
+        
+        
+    }
+    header .container{
+        display: flex;
+        align-items: center;
+        flex-direction: row;  
+        gap: 35px;
+        
+    }
+    footer{
+        align-content: center;
+        background-color:#111;
+        color: white;
+        height: 100px;
+        justify-content: center;
+        display: flex;
+        gap: 50px;
+        border-top: white solid;
+        
+    }
+
+    .uno{
+        text-align: center;
+        list-style-type: none;
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    .dos{
+        text-align: center;
+        list-style-type: none;
+        margin: 10px; 
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    .tres{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 10px;
+        
+    }
+
+    .tres input{
+        height: fit-content;
+    }
+
+    h1{
+        text-align: center;
+
+    }
+    .tarjeta{
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+        height: 245px;    
+        padding: 5px;
+        color: white;
+        margin: 5px 5px;
+        position: relative;
+    }
+    .tarjeta img{
+        height: 175px;
+        width:180px ;
+        border-radius: 20px;
+    }
+    .tarjeta p{
+        padding: 5px;
+
+    }
+    .tarjeta p:nth-of-type(2){
+        left: 0%;
+        bottom: 0px;
+    }
+
+
+    .boton{
+    background-color: #FFbe00; 
+    color: #333; 
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    }
+
+    .boton:hover{
+        background-color: #FFC107; 
+
+    }
+
+    .titulo{
+
+        color: white;
+        border-bottom: 1px grey solid;
+        width: 1400px;
+        margin-top: 100px;
+        padding: 20px;
+    }
+
+    .logo{
+        height:80px;
+        width: 65px;
+    }
+
+    .headerlogo{
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+        align-items:center;   
+        font-size: 0.5em;
+        
+    }
+
+    .headerlogo h1{
+        font-family: "miFuente";
+        color: #ffbe00;
+    }
+
+
+    .container img:nth-of-type(2){
+        width: 35px;
+    }
+
+
+
+      .container {
+        width: 1400px; 
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;     
+    }
+    .menu {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .menu li {
+        position: relative;
+        display: inline-block;
+    }
+    .menu li:hover .submenu {
+        display: block;
+    }
+
+    .submenu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        text-align: justify;
+        background-color: #333;
+        padding: 5px;
+    }
+    .submenu2{
+        display: none;
+        position: absolute;
+        top: 100%;
+        text-align: justify;
+        background-color: #333;
+        padding: 5px;
+    }
+    .submenu li{
+        margin: 5px;
+    }
+
+
+    header img {
+        display: flex;
+        top: 0;
+        width: 35px;
+        height: 30px;
+        float: left;
+        margin-right: 10px;
+    }
+    .carro{
+        width: 60px;
+    }
+    ul {
+        list-style-type: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: center;
+        
+        gap: 15px;
+        font-size:15px;
+    }
+
+
+    .caja-carrusel {
+        width: 100vw;
+        margin-top: 0;
+        overflow: hidden;
+    }
+    .caja-juegos{
+        display: flex;
+        width: 1000px;
+        height: 270px;
+        transition: transform 0.5s ease-in-out;
+        transform: translateX();
+        justify-content: flex-start;
+        flex-direction: row;
+    }
+
+    .container-juegos{
+        width: 1015px; 
+        margin:  50px auto;
+        display: flex;
+        align-items: center;
+        overflow-x: hidden;
+        position: relative; 
+    }
+
+    .carrusel {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        transform: translateX();
+    }
+
+
+    .menufotos{
+        margin: 10px auto;
+        width: 75%;
+        height: 450px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+
+    }
+
+    .menufotos img{
+        width: 15%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+        border: 2px grey solid;
+        transition: all ease-in-out 0.5s;
+    }
+
+    .menufotos img:hover{
+        width:30% ;
+    }
+
+    .prev, .next {
+        position: absolute;
+        top: 50%;
+        background-color: grey;
+        color: white;
+        width: 17px;
+        height: 25px;
+        
+    }
+    .slide{
+        width: 100vw;
+        margin: 0 auto;
+        position: relative;
+        text-align: center;
+
+    }
+
+    .search-box {
+        width: 300px;
+        padding: 10px 15px;
+        border: 2px solid #333;
+        border-radius: 25px;
+        font-size: 16px;
+        outline: none;
+        
+    }
+
+    .slide button{
+        bottom: 25%;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        background-color: #ffbe00; 
+        color: #000000; 
+        font-size: 18px;
+        font-weight: bold;
+        padding: 12px 24px;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+    }
+
+    .slide button:hover {
+        background-color: #d1a800; 
+    }
+
+    .btn-comprar:active {
+        background-color: #b48900; 
+    }
+
+
+    .slide img{
+        min-width: 100vw;
+        object-fit: cover;
+        height: 90vh;
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
+
+    .colores{
+        color: orange;
+    }
+
+    .rebajado{
+        text-decoration: line-through ;
+    }
+
+    .container-header{
+        
+            width: 1400px; 
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;     
+            gap: 15px;
+        
+    }
+
+    .container-header2{
+            width: 560px; 
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative; 
+            display: none;
+    }
+    .desple{
+        display: none;
+    }
+}
+
+    
+
+    @media (max-width: 768px) {
+        body {
+        
+            margin: 0 auto; 
+            background-color:#111;
+            
+        }
+        .container{
+            max-width: 100vw;
+        }
+        .container-juegos{
+            max-width: 99vw;
+        }
+        .menufotos img{
+            width: 20%;
+        }
+        .menufotos img:hover{
+            width:40% ;
+        }
+        .caja-carrusel {
+            width: 100vw;
+            margin-top: 0;
+            overflow: hidden;
+        }
+        .caja-carrusel img {
+                max-width: 100%;
+                object-fit: cover;
+            }
+        .container-header{
+            display: none;
+        }
+        .search-box{
+        width: 150px;
+        padding: 5px 15px;
+        border: 2px solid #333;
+        border-radius: 10px;
+        font-size: 16px;
+        outline: none;
+        }
+        .container-header2{
+            display: flex;
+            
+        }
+        .tarjeta {
+            display: flex;
+            flex-direction: column;
+            width: 150px; 
+            height: 190px; 
+            padding: 5px; 
+            margin: 5px; 
+            position: relative;
+        }
+    
+        .tarjeta img {
+            width: 130px; 
+            height: 120px; 
+            align-self: center;
+        }
+        .tarjeta p{
+            padding: 5px;
+    
+        }
+        .tarjeta p:nth-of-type(2){
+            left: 0%;
+            bottom: 0px;
+        } 
+
+        .caja-juegos{
+            display: flex;
+            width: 400px;
+            height: 215px;
+            transition: transform 0.5s ease-in-out;
+            transform: translateX();
+            justify-content: flex-start;
+            flex-direction: row;
+        }
+        header{
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .desple {
+            display: contents;
+            padding: 5px;
+        }
+        
+        .desple li:hover .submenu {
+            display: block;
+        }
+        
+        .desple > ul > li {
+            position: relative;
+            padding: 10px;
+        }
+        
+        .submenu {
+            display: none;
+            position: absolute;
+            text-align: justify;
+            background-color: #080808;
+            padding: 5px;
+        }
+        
+        .promociones {
+            position: relative;
+        }
+        
+        .promociones:hover .prom-submenu {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background-color: #080808;
+        }
+        
+        .prom-submenu {
+            display: none;
+            position: absolute;
+            left: 100%;
+            top: 0;
+
+            padding: 5px;
+            min-width: max-content;
+            text-align: justify;
+        }
+        
+        .submenu .prom-submenu {
+            left: 100%;
+            top: 0;
+            position: relative;
+            margin: 10px;
+        }
+        .slide{
+            width: 100vw;
+        }
+    
+    }
+
+    @media (max-width: 1280px) {
+        body {
+            margin: 0 auto; 
+            background-color: #111;
+        }
+        .container {
+            max-width: 100vw;
+        }
+        .container-juegos{
+            width: 700px; 
+            margin:  50px auto;
+            display: flex;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative; 
+        }
+        .menufotos img {
+            width: 20%;
+        }
+        .menufotos img:hover {
+            width: 40%;
+        }
+        .caja-carrusel {
+            width: 100vw;
+            margin-top: 0;
+            overflow: hidden;
+        }
+        .caja-carrusel img {
+            max-width: 100%;
+            object-fit: cover;
+        }
+        .container-header {
+            display: none;
+        }
+        .search-box {
+            width: 150px;
+            padding: 5px 15px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            font-size: 16px;
+            outline: none;
+        }
+        .container-header2 {
+            display: flex;
+        }
+        .tarjeta {
+            display: flex;
+            flex-direction: column;
+            width: 133px; 
+            height: 163px; 
+            padding: 5px; 
+            margin: 5px; 
+            position: relative;
+        }
+        .tarjeta img {
+            min-width: 110px; 
+            max-width: 110px;
+            height: 110px; 
+            align-self: center;
+        }
+        .tarjeta p {
+            padding: 5px;
+        }
+        .tarjeta p:nth-of-type(2) {
+            left: 0%;
+            bottom: 0px;
+        } 
+        .caja-juegos {
+            display: flex;
+            width: 400px;
+            height: 215px;
+            transition: transform 0.5s ease-in-out;
+            transform: translateX();
+            justify-content: flex-start;
+            flex-direction: row;
+            
+        }
+        header {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        .desple {
+            display: contents;
+            padding: 5px;
+        }
+        .desple li:hover .submenu {
+            display: block;
+        }
+        .desple > ul > li {
+            position: relative;
+            padding: 10px;
+        }
+        .submenu {
+            display: none;
+            position: absolute;
+            text-align: justify;
+            background-color: #080808;
+            padding: 5px;
+        }
+        .promociones {
+            position: relative;
+        }
+        .promociones:hover .prom-submenu {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background-color: #080808;
+        }
+        .prom-submenu {
+            display: none;
+            position: absolute;
+            left: 100%;
+            top: 0;
+            padding: 5px;
+            min-width: max-content;
+            text-align: justify;
+        }
+        .submenu .prom-submenu {
+            left: 100%;
+            top: 0;
+            position: relative;
+            margin: 10px;
+        }
+        .slide {
+            width: 100vw;
+        }
+    }
+    
